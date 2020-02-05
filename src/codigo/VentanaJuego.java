@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
-import sun.java2d.pipe.DrawImage;
 
 /**
  *
@@ -26,7 +25,10 @@ public class VentanaJuego extends javax.swing.JFrame {
     int columnasMarcianos = 10;
     
     BufferedImage pantalla = null;
+    Marciano miMarciano = new Marciano(ANCHOPANTALLA);
+    ///////////////////////////////////////////////////
     
+  
     // bucle de animacion del juego
     // en este caso, es un hilo de ejecucion nuevo que se
     // encarga de refrescar el contenido de la pantalla
@@ -41,6 +43,7 @@ public class VentanaJuego extends javax.swing.JFrame {
     });
     
     
+    
             
 
     /**
@@ -51,6 +54,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         setSize (ANCHOPANTALLA,ALTOPANTALLA);
         pantalla = (BufferedImage) jPanel1.createImage(ANCHOPANTALLA,ALTOPANTALLA);
         pantalla.createGraphics();
+        
         
         // Arranco el temporizador para que empiece el juego
         temporizador.start();
@@ -65,11 +69,14 @@ public class VentanaJuego extends javax.swing.JFrame {
         g2.fillRect(0, 0,ANCHOPANTALLA, ALTOPANTALLA);
         
         /////////////////////////////////////////////////////////////
+         g2.drawImage(miMarciano.imagen1,10,10,null);
+         g2.drawImage(miMarciano.imagen2,10,50,null);
         ////////////////////////////////////////////////////////////
         
         // Dibujo de golpe todo el buffer en el JLabel1
         g2 = (Graphics2D) jPanel1.getGraphics();
         g2.drawImage (pantalla,0,0,null);
+        
     }
         
     /**
