@@ -23,10 +23,12 @@ public class VentanaJuego extends javax.swing.JFrame {
     
     int filasMarcianos = 5;
     int columnasMarcianos = 10;
+    int contador = 0;
     
     BufferedImage pantalla = null;
     Marciano miMarciano = new Marciano(ANCHOPANTALLA);
-    ///////////////////////////////////////////////////
+    
+
     
   
     // bucle de animacion del juego
@@ -67,18 +69,28 @@ public class VentanaJuego extends javax.swing.JFrame {
         Graphics2D g2 = (Graphics2D) pantalla.getGraphics();
         g2.setColor(Color.BLACK);
         g2.fillRect(0, 0,ANCHOPANTALLA, ALTOPANTALLA);
-        
+        contador++;
         /////////////////////////////////////////////////////////////
-         g2.drawImage(miMarciano.imagen1,10,10,null);
-         g2.drawImage(miMarciano.imagen2,10,50,null);
+        if(contador<50){
+         g2.drawImage(miMarciano.imagen2,10,10,null);
+        }
+        else if(contador<100){
+                g2.drawImage(miMarciano.imagen1,10,10,null);
+    }
+        else
+    {
+    contador = 0;
+
+    }
+    
         ////////////////////////////////////////////////////////////
         
         // Dibujo de golpe todo el buffer en el JLabel1
         g2 = (Graphics2D) jPanel1.getGraphics();
         g2.drawImage (pantalla,0,0,null);
         
-    }
-        
+    
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

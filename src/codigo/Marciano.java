@@ -26,7 +26,7 @@ public class Marciano {
         anchoPantalla = _anchoPantalla;
         try {
             imagen1 = ImageIO.read(getClass().getResource("/imagenes/marcianito1.png"));
-            imagen2 = ImageIO.read(getClass().getResource("/imagenes/marcianito1.png"));
+            imagen2 = ImageIO.read(getClass().getResource("/imagenes/marcianito2.png"));
             
         } 
         catch (Exception igor) {
